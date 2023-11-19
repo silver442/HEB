@@ -1,5 +1,16 @@
-/* Estilos */
+/* Estilos Generales*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%; 
+}
 
 body{
     background-color: gray;
 }
+
+/*Fin de Estilos generales*/
