@@ -11,6 +11,54 @@ html{
 
 body{
     background-color: gray;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /*Fin de Estilos generales*/
+/*--------------Estilos de cabecera -----------------------*/
+header{
+    height: 15vh;
+    border-bottom: 2px solid rgb(40, 40, 40);
+    margin-bottom: 5px;
+}
+
+/* -------------Estilo pantalla principal --------------*/
+main{
+    display: flex;
+    width: 50vw;
+    height: 78vh;
+}
+
+.pantalla{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pantalla-top{
+    background-color: aliceblue;
+    margin-left: 20px;
+    width: 50vw;
+    height: 50vh;
+}
+/*------------Estilos de la parte de abajo------------------*/
+.pantalla-bottom{
+    width: 50vw;
+    height: 28vh;
+    margin-left: 15px;   
+}
+
+.pantalla-bottom form label span{
+    font-size: 1.6rem;
+}
+/*---------------Estilos de la seccion lateral ---------------------*/
+aside{
+    width: 50vw;
+    height: 50vh;
+    border-left: 2px solid black;
+}
+
+/*---------------------Estilos de footer-------------------------*/
+footer{
+    border-top: 2px solid white;
+    height: 5vh;
+}
