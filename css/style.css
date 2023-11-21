@@ -54,7 +54,9 @@ main{
 .pantalla-bottom{
     width: 50vw;
     height: 28vh;
-    margin-left: 15px;  
+    margin-left: 15px;
+    display: flex;
+    justify-content: end;
 }
 form{
     width: 250px;
@@ -67,6 +69,7 @@ form{
 .PLU input{
     background-color: var(--color-blue);
 }
+
 /*---------------Estilos de la seccion lateral ---------------------*/
 aside{
     width: 50vw;
