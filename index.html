@@ -10,44 +10,78 @@
     <!-----------------Cabecera-------------------------------->
     <header>
         <picture>
-            <img src="" alt="">
+            <img src="img/imgHeader.png" alt="">
         </picture>
     </header>
 
-    <!-- ----------------Contenido ----------------------->
-    <main>
-        <div class="pantalla">
-            <div class="pantalla-top">
-
-            </div>
-
-            <div class="pantalla-bottom">
-              <form action="">
-                
-                <label for="totalPagar">
-                    <span>Total a pagar: </span>
-                    <input type="text" id="totalPagar" placeholder="$0.00">
-                </label>
+    <!-------------------Contenido ----------------------->
+    <main class="content">
+        
+        <div class="transaccion text">
             
-                <label for="BusquedaPLU" class="PLU">
-                    <span>Busqueda PLU</span><br>
-                    <input type="text" id="BusquedaPLU">
-                </label>
-              </form>
-                
-            </div>   
+            <p># Transacción :</p>
+
         </div>
+
+
+        <!-------------Panatlla principal------------>
+        <div class="pantalla">
+          
+        </div>
+
+
+
         <!----------------- Contenido lateral -------------->
-        <aside>
+        
+        <div class="imgAside">
             <figure>
-                <img src="" alt="">
+                <img src="img/imgAside.png" alt="">
             </figure>
+        </div>
+
+        <aside class="aside">
+            
+            <ul>
+                <li>[ESC] Exit</li>
+                <li>[^A]Help</li>
+                <li>Enter Enter</li>
+                <li>[F3] Logoff</li>
+                <li>[F5] Change key</li>
+            </ul>
+            
         </aside>
+
+        <!--Fin del contenido lateral----------------->
+
+
+        <div class="total">
+            <label for="totalPagar">
+                <span class="text">Total a pagar: </span>
+                <input type="text" id="totalPagar" placeholder="$0.00">
+            </label>
+        </div>
+
+        <div class="pantalla-bottom">
+              <label for="BusquedaPLU" class="PLU">
+                  <span class="text">Busqueda PLU</span><br>
+                  <input type="text" id="BusquedaPLU">
+              </label>
+              
+        </div> 
     </main>
 
     <!-- ------------- Pie de página ------------>
     <footer>
-
+        <ul class="footer-ul">
+            <li>MyHEBPOS</li>
+            <li>3.175.4.6</li>
+            <li>Loc:1</li>
+            <li>Term:14</li>
+            <li>Oper:203</li>
+            <li>Kybd:H020</li>
+            <li>10:02 PM</li>
+            <li>20-Dec-2023</li>
+        </ul>
     </footer>
     <script src="Js/main.js"></script>
 </body>

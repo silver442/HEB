@@ -1,6 +1,6 @@
 /*--------------------Variables------------*/
 :root {
-    --primary-color: #747474;
+    --primary-color: #b7b7b7;
     --secundary-color: #ebecef;
     --color-blue: rgb(46, 46, 217);
     --color-red: rgb(197, 35, 35);
@@ -24,42 +24,73 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.text{
+    font-size: 15px;
+}
+
 /*Fin de Estilos generales*/
-/*--------------Estilos de cabecera -----------------------*/
+/*-------------------------------Estilos de cabecera -----------------------*/
 header{
     height: 15vh;
     border-bottom: 2px solid rgb(40, 40, 40);
     margin-bottom: 5px;
 }
 
-/* -------------Estilo pantalla principal --------------*/
+/* ---------------------------Estilo pantalla principal --------------*/
 main{
-    display: flex;
-    width: 50vw;
-    height: 78vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 20px 70% 1fr 3fr;
+    grid-gap: 10px;
+    width: 100%;
+    height: 75vh;
+}
+
+.transaccion{
+    grid-column: 1/5;
+    grid-row: 1/2;
 }
 
 .pantalla{
+    grid-column: 1/3;
+    grid-row: 2/3;
+    background-color: var(--secundary-color);
+    /*display: flex;
+    flex-direction: column;
+    */
+}
+
+/*--------------------------------Estilos de la seccion lateral ---------------------*/
+
+.imgAside{
+    grid-column: 3/4;
+    grid-row: 2/5;
+}
+
+.aside{
+    grid-row: 2/5;
     display: flex;
     flex-direction: column;
+    border-left: 2px solid black;
+}
+
+aside > ul > li{
+    width: 100%;
+    height: 50px;
+}
+
+/*-----------------------------Estilos de la parte de abajo------------------*/
+.total{
+    grid-column: 2/3;
+    grid-row: 3/4;
     
 }
-.pantalla-top{
-    background-color: var(--secundary-color);
-    margin-left: 20px;
-    width: 50vw;
-    height: 50vh;
-}
-/*------------Estilos de la parte de abajo------------------*/
 .pantalla-bottom{
-    width: 50vw;
-    height: 28vh;
+    grid-column: 1/3;
+    grid-row: 4/5;
     margin-left: 15px;
-    display: flex;
-    justify-content: end;
-}
-form{
-    width: 250px;
+    /*display: flex;
+    justify-content: end;*/
 }
 
 .pantalla-bottom form label span{
@@ -70,15 +101,24 @@ form{
     background-color: var(--color-blue);
 }
 
-/*---------------Estilos de la seccion lateral ---------------------*/
-aside{
-    width: 50vw;
-    height: 50vh;
-    border-left: 2px solid black;
-}
 
-/*---------------------Estilos de footer-------------------------*/
+/*----------------------------------------Estilos de footer-------------------------*/
 footer{
     border-top: 2px solid white;
     height: 5vh;
+}
+
+.footer-ul{
+    display: flex;
+}
+
+ul > li{
+    flex-grow: 1;
+    list-style: none;
+    font-size: 18px;
+    color: var(--secundary-color)
+}
+
+li{
+    padding-left: 25px;
 }
