@@ -7,40 +7,64 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-----------------Cabecera-------------------------------->
-    <header>
-        <picture>
-            <img src="img/imgHeader.png" alt="">
-        </picture>
-    </header>
 
-    <!-------------------Contenido ----------------------->
-    <main class="content">
-        
-        <div class="transaccion text">
+    <div id="content">
+        <!-----------------Cabecera-------------------------------->
+        <header>
+            <picture>
+                <img src="img/imgHeader.png" alt="">
+            </picture>
+        </header>
+
+        <!-------------------Contenido ----------------------->
+        <main class="content-main">
             
-            <p># Transacción :</p>
+            <div class="transaccion text">
+                
+                <p># Transacción :</p>
 
-        </div>
-
-
-        <!-------------Panatlla principal------------>
-        <div class="pantalla">
-          
-        </div>
+            </div>
 
 
+            <!-------------Panatlla principal------------>
+            <div class="content-pantalla">
+                <div class="pantalla">
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="total">
+                <label for="totalPagar">
+                    <span class="text">Total a pagar: </span>
+                    <input type="text" id="totalPagar" placeholder="$0.00">
+                </label>
+            </div>
+
+            <div class="pantalla-bottom">
+                <label for="BusquedaPLU" class="PLU">
+                    <span class="text">Busqueda PLU</span><br>
+                    <input type="text" id="BusquedaPLU">
+                </label>
+                
+            </div> 
+        </main>
+        <!-- FIN  DEL CONTENIDO MAIN-->
 
         <!----------------- Contenido lateral -------------->
-        
-        <div class="imgAside">
-            <figure>
-                <img src="img/imgAside.png" alt="">
-            </figure>
-        </div>
 
         <aside class="aside">
-            
+
+            <div class="imgAside">
+                <div class="datos">
+                    <p class="name">Mi nombre:</p>
+                    <p id="name">Nombre del cajero</p>
+                </div>
+
+                <figure>
+                    <img src="img/imgAside.png" alt="">
+                </figure>
+            </div>
+
             <ul>
                 <li>[ESC] Exit</li>
                 <li>[^A]Help</li>
@@ -53,36 +77,21 @@
 
         <!--Fin del contenido lateral----------------->
 
-
-        <div class="total">
-            <label for="totalPagar">
-                <span class="text">Total a pagar: </span>
-                <input type="text" id="totalPagar" placeholder="$0.00">
-            </label>
-        </div>
-
-        <div class="pantalla-bottom">
-              <label for="BusquedaPLU" class="PLU">
-                  <span class="text">Busqueda PLU</span><br>
-                  <input type="text" id="BusquedaPLU">
-              </label>
-              
-        </div> 
-    </main>
-
-    <!-- ------------- Pie de página ------------>
-    <footer>
-        <ul class="footer-ul">
-            <li>MyHEBPOS</li>
-            <li>3.175.4.6</li>
-            <li>Loc:1</li>
-            <li>Term:14</li>
-            <li>Oper:203</li>
-            <li>Kybd:H020</li>
-            <li>10:02 PM</li>
-            <li>20-Dec-2023</li>
-        </ul>
-    </footer>
+        <!-- ------------- Pie de página ------------>
+        <footer class="footer">
+            <ul class="footer-ul">
+                <li>MyHEBPOS</li>
+                <li>3.175.4.6</li>
+                <li>Loc:1</li>
+                <li>Term:14</li>
+                <li>Oper:203</li>
+                <li>Kybd:H020</li>
+                <li>10:02 PM</li>
+                <li>20-Dec-2023</li>
+            </ul>
+        </footer>
+    </div>
+    
     <script src="Js/main.js"></script>
 </body>
 </html>

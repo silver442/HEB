@@ -28,97 +28,137 @@ body{
     font-size: 15px;
 }
 
+#content{
+    display: grid;
+    grid-template-columns: 55% 1fr 1fr;
+    grid-template-rows: 1fr 80vh 5vh;
+    grid-template-areas: 
+    "header header header"
+    "main aside aside"
+    "footer footer footer";
+}
+
 /*Fin de Estilos generales*/
 /*-------------------------------Estilos de cabecera -----------------------*/
 header{
-    height: 15vh;
-    border-bottom: 2px solid rgb(40, 40, 40);
+    grid-area: header;
+    justify-self: center;
+
     margin-bottom: 5px;
 }
 
 /* ---------------------------Estilo pantalla principal --------------*/
-main{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 20px 70% 1fr 3fr;
-    grid-gap: 10px;
-    width: 100%;
-    height: 75vh;
+.content-main{
+    grid-area: main;
+    border-top: 2px solid rgba(40, 40, 40,.5);
+    margin: 5px;
 }
 
 .transaccion{
-    grid-column: 1/5;
-    grid-row: 1/2;
+    font-size: 12px;
+    color: green;
+}
+
+.content-pantalla{
+    display: flex;
+    height: 70%;
+    background-color: var(--secundary-color);
+    justify-content: center;
+    align-items: center;
 }
 
 .pantalla{
-    grid-column: 1/3;
-    grid-row: 2/3;
-    background-color: var(--secundary-color);
-    /*display: flex;
-    flex-direction: column;
-    */
-}
+    height: 95%;
+    width: 95%;
 
-/*--------------------------------Estilos de la seccion lateral ---------------------*/
-
-.imgAside{
-    grid-column: 3/4;
-    grid-row: 2/5;
-}
-
-.aside{
-    grid-row: 2/5;
-    display: flex;
-    flex-direction: column;
-    border-left: 2px solid black;
-}
-
-aside > ul > li{
-    width: 100%;
-    height: 50px;
+    padding: 10px;
+    border-top: black 2px dashed;
 }
 
 /*-----------------------------Estilos de la parte de abajo------------------*/
 .total{
-    grid-column: 2/3;
-    grid-row: 3/4;
-    
-}
-.pantalla-bottom{
-    grid-column: 1/3;
-    grid-row: 4/5;
-    margin-left: 15px;
-    /*display: flex;
-    justify-content: end;*/
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
 }
 
 .pantalla-bottom form label span{
     font-size: var(--font);
 }
 
-.PLU input{
-    background-color: var(--color-blue);
+#totalPagar{
+    font-size: 14px;
+    text-align: end;
 }
 
+.PLU input{
+    background-color: var(--color-blue);
+    font-size: 14px;
+    color: var(--secundary-color);
+}
+
+/*--------------------------------Estilos de la seccion lateral ---------------------*/
+
+.aside{
+    display: grid;
+    grid-area: aside;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    border-left: 2px solid rgba(40, 40, 40,.5);
+}
+
+.imgAside{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+
+    height: 100%;
+}
+
+.datos{
+    height: 70px;
+    padding-top: 10px;
+}
+
+.datos p{
+    font-size: 15px;
+}
+.name{
+    color: var(--color-blue);
+}
+#name{
+    color: black;
+}
+
+aside ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    height: 100%;
+}
+
+aside ul li{
+    color: rgb(28, 28, 28);
+}
 
 /*----------------------------------------Estilos de footer-------------------------*/
-footer{
+.footer{
+    grid-area: footer;
     border-top: 2px solid white;
-    height: 5vh;
+
+    padding-top: 10px;
 }
 
 .footer-ul{
-    display: flex;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 ul > li{
-    flex-grow: 1;
     list-style: none;
     font-size: 18px;
-    color: var(--secundary-color)
-}
-
-li{
-    padding-left: 25px;
+    color: var(--font)
 }
