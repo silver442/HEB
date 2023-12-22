@@ -9,11 +9,14 @@ $(function(){
 
     $("#BusquedaPLU").focus().keypress(evento);
 
+    var producto;
+
     function evento(e){
 
         if(e.which == 13){ // tecla enter
 
-            busquedaPLU($("#BusquedaPLU").val());
+            producto=$("#BusquedaPLU").val();
+            busquedaPLU(producto);
 
         }else if(e.which == 32){ // tecla espaciadora
 
@@ -53,12 +56,16 @@ $(function(){
 
         alert("Total");
 
+
+
     }
 
     function verificacionPrecio(){
 
-        alert("Precio");
+        //alert("Precio");
 
+        $(".content-pantalla").html("<iframe src='Page/Busqueda.html' width='98%' height='98%' id='externo' frameborder='0'></iframe>");
+        //$("iframe").attr("src","Page/Busqueda.html");
     }
 });
 
