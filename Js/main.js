@@ -3,11 +3,21 @@
     
 $(function(){
 
-    var name1 = prompt("User Name: ");
+    //var name1 = prompt("User Name: ");
 
-    $("#name").text(name1);
+    var name1;
+    $("#userName").focus().keypress(evento);
+    $("#btnEntrar").click(login);
 
-    $("#BusquedaPLU").focus().keypress(evento);
+    function login(e){
+        
+        name1 = $("#userName").val();
+        $("#name").text(name1); 
+        $(".login").attr("hidden", true);
+
+        $("#BusquedaPLU").focus().keypress(evento);
+        e.preventDefault();   
+    }
 
     var producto;
 

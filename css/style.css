@@ -162,3 +162,42 @@ ul > li{
     font-size: 18px;
     color: var(--font)
 }
+
+/*----------------------------- LOGIN ----------------------------------------------*/
+
+.login{
+    position: absolute;
+    right: 725px;
+    top: 210px;
+    width: 350px;
+    height: 150px;
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.login h1{
+    color: green;
+    font-size: 15px;
+    border-bottom: #292727 solid 1px;
+    padding: 4px;
+}
+.form-login{
+    padding-top: 20px;
+}
+.form-login label{
+    font-size: 15px;
+}
+
+.form-login input[type="text"]{
+    width: 70%;
+    height: 20px;
+    font-size: 15px;
+    margin: 10px;
+}
+
+.form-login button, .form-login input[type="submit"]{
+    width: 80px;
+    height: 30px;
+    background-color: var(--primary-color);
+    border-color: #a0a0a0;
+}
