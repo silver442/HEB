@@ -25,6 +25,7 @@ $(function(){
 
         if(e.which == 13){ // tecla enter
 
+            $(".pantalla").css("borderTop","black 2px dashed");
             producto=$("#BusquedaPLU").val();
             busquedaPLU(producto);
 
@@ -43,6 +44,18 @@ $(function(){
         }
     }
 
+    //  Reloj
+
+    setInterval(function(){
+        var reloj = moment().format("hh:mm:ss a");
+
+        $('#hora').html(reloj);
+
+    }, 1000);
+
+    $('#fecha').html(
+        moment().date() + "-" + moment().format("MMMM") + "-" + moment().format("YYYY") 
+    );
     // -----------------Funciones de las pantallas -----------------------------------------------
     function busquedaPLU(PLU){
 
@@ -65,8 +78,6 @@ $(function(){
     function total(){
 
         alert("Total");
-
-
 
     }
 
