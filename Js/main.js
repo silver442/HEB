@@ -6,7 +6,11 @@ $(function(){
     //var name1 = prompt("User Name: ");
 
     var name1;
-    $("#userName").focus().keypress(evento);
+    $("#userName").focus().keypress(function(e) {
+        if(e.which == 13) {
+            login(e);
+        }
+    });
     $("#btnEntrar").click(login);
 
     function login(e){
