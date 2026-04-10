@@ -176,11 +176,10 @@ p {
     grid-area: aside;
     grid-template-columns: auto auto;
     align-items: start;
-    justify-items: start;
+    justify-items: Center;
     border-left: 2px solid rgba(40, 40, 40, .5);
     border-top: 2px solid rgba(40, 40, 40, .5);
-    padding: 0px 0 0 30px;
-    gap: 20px;
+    padding: 0px 0 0 0px;
 }
 
 .imgAside {
@@ -210,7 +209,7 @@ p {
 }
 
 aside figure img {
-    width: 225px;
+    width: 290px;
     height: auto;
 }
 
