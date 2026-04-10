@@ -43,17 +43,27 @@
 
             <div class="total">
                 <label for="totalPagar">
-                    <span class="text">Total a pagar: </span>
-                    <input type="text" id="totalPagar" placeholder="$0.00" disabled>
+                    <span class="text text-blue italic">Total Actual: </span>
+                    <input type="text" id="totalPagar" placeholder="$ 0.00" disabled>
                 </label>
             </div>
 
             <div class="pantalla-bottom">
-                <label for="BusquedaPLU" class="PLU">
-                    <span class="text">Busqueda PLU</span><br>
-                    <input type="text" id="BusquedaPLU">
-                </label>
-                
+                <div class="busqueda-container">
+                    <div class="plu-section">
+                        <label for="BusquedaPLU" class="PLU">
+                            <span class="text text-green italic">Busqueda:</span> <span class="text text-blue italic" style="margin-left: 20px;">PLU #</span><br>
+                            <input type="text" id="BusquedaPLU">
+                        </label>
+                        <div class="info-text">
+                            <p class="text-blue italic">Teclear Articulo por vender.</p>
+                            <p class="text-blue italic">Pulse AYUDA oara obtener mas info...</p>
+                        </div>
+                    </div>
+                    <div class="peso-box">
+                        00.000 kg
+                    </div>
+                </div>
             </div> 
         </main>
         <!-- FIN  DEL CONTENIDO MAIN-->
@@ -64,8 +74,8 @@
 
             <div class="imgAside">
                 <div class="datos">
-                    <p class="name">Mi nombre:</p>
-                    <p id="name"></p>
+                    <p class="name italic text-blue">Mi Nombre:</p>
+                    <p id="name" class="italic"></p>
                 </div>
 
                 <figure>
@@ -73,12 +83,12 @@
                 </figure>
             </div>
 
-            <ul>
-                <li>[ESC] Exit</li>
-                <li>[^A]Help</li>
-                <li>Enter Enter</li>
-                <li>[F3] Logoff</li>
-                <li>[F5] Change key</li>
+            <ul class="aside-menu">
+                <li><span class="circle"></span> <i>[ESC] Exit</i></li>
+                <li><span class="circle"></span> <i>[^A] Help</i></li>
+                <li><span class="circle"></span> <i>Enter Enter</i></li>
+                <li><span class="circle"></span> <i>[F3] Logoff</i></li>
+                <li><span class="circle"></span> <i>[F5] Change key</i></li>
             </ul>
             
         </aside>
@@ -88,14 +98,14 @@
         <!-- ------------- Pie de página ------------>
         <footer class="footer">
             <ul class="footer-ul">
-                <li>MyHEBPOS</li>
-                <li>3.175.4.6</li>
-                <li>Loc:1</li>
-                <li>Term:14</li>
-                <li>Oper:203</li>
-                <li>Kybd:H020</li>
-                <li id="hora">hora</li>
-                <li id="fecha">20-Dec-2000</li>
+                <li><i>MyHEBPOS</i></li>
+                <li><i>3.175.4.6</i></li>
+                <li><i>Loc:1</i></li>
+                <li><i>Term:14</i></li>
+                <li><i>Oper:203</i></li>
+                <li><i>Kybd:H020</i></li>
+                <li id="hora"><i>hora</i></li>
+                <li id="fecha"><i>20-Dec-2000</i></li>
             </ul>
         </footer>
     </div>

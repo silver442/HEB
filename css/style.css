@@ -2,45 +2,58 @@
 :root {
     --primary-color: #b7b7b7;
     --secundary-color: #ebecef;
-    --color-blue: rgb(46, 46, 217);
+    --color-blue: #1152CF;
     --color-red: rgb(197, 35, 35);
     --header-size: 4rem;
     --font: 1.8rem;
 }
 
 /* Estilos Generales*/
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html{
-    font-size: 62.5%; 
+html {
+    font-size: 62.5%;
 }
 
-body{
+body {
     background-color: var(--primary-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.text{
+.text {
     font-size: 15px;
 }
 
-#content{
+#content {
     display: grid;
-    grid-template-columns: 55% 1fr 1fr;
-    grid-template-rows: 1fr 80vh 5vh;
-    grid-template-areas: 
-    "header header header"
-    "main aside aside"
-    "footer footer footer";
+    grid-template-columns: 58% 42%;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
+    height: 100vh;
+}
+
+.text-blue {
+    color: var(--color-blue);
+}
+
+.text-green {
+    color: #4BAF43;
+}
+
+.italic {
+    font-style: italic;
 }
 
 /*Fin de Estilos generales*/
 /*-------------------------------Estilos de cabecera -----------------------*/
-header{
+header {
     grid-area: header;
     justify-self: center;
 
@@ -48,129 +61,223 @@ header{
 }
 
 /* ---------------------------Estilo pantalla principal --------------*/
-.content-main{
+.content-main {
     grid-area: main;
-    border-top: 2px solid rgba(40, 40, 40,.5);
-    margin: 5px;
-}
-
-.transaccion{
-    font-size: 12px;
-    color: green;
-}
-
-.content-pantalla{
+    border-top: 2px solid rgba(40, 40, 40, .5);
+    margin: 0;
     display: flex;
-    height: 70%;
-    background-color: var(--secundary-color);
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.pantalla{
-    height: 95%;
-    width: 95%;
+.transaccion {
+    font-size: 13px;
+    color: green;
+    padding: 2px 10px;
+}
 
+.content-pantalla {
+    display: flex;
+    height: 380px;
+    background-color: white;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 1px 0px 10px;
+    border: 1px solid #999;
+}
+
+.pantalla {
+    height: 100%;
+    width: 100%;
     padding: 10px;
-    /*border-top: black 2px dashed;*/
 }
 
 /*-----------------------------Estilos de la parte de abajo------------------*/
-.total{
+.total {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    padding: 1px;
+    border-bottom: 2px solid rgba(40, 40, 40, .2);
+}
+
+.pantalla-bottom {
+    padding: 10px;
+}
+
+.busqueda-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plu-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.peso-box {
+    border: 1px solid #999;
+    padding: 20px 40px;
+    font-size: 14px;
+    width: 150px;
+    margin-right: 55px;
+    color: black;
+}
+
+.info-text {
     margin-top: 5px;
 }
 
-.pantalla-bottom form label span{
-    font-size: var(--font);
+.info-text p {
+    margin: 2px 0;
+    font-size: 15px;
 }
 
-p{
+p {
     font-size: 14px;
     font-family: Helvetica, Arial;
 }
 
-#totalPagar{
-    font-size: 14px;
+#totalPagar {
+    font-size: 18px;
+    color: var(--color-blue);
     text-align: end;
+    border: none;
+    background-color: white;
+    padding: 5px;
+    width: 220px;
+    margin-left: 15px;
 }
 
-.PLU input{
+.total label {
+    display: flex;
+    align-items: center;
+}
+
+.total label .text {
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.PLU input {
     background-color: var(--color-blue);
-    font-size: 14px;
-    color: var(--secundary-color);
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 240px;
+    height: 22px;
+    margin-top: 5px;
 }
 
 /*--------------------------------Estilos de la seccion lateral ---------------------*/
 
-.aside{
+.aside {
     display: grid;
     grid-area: aside;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-    border-left: 2px solid rgba(40, 40, 40,.5);
+    grid-template-columns: auto auto;
+    align-items: start;
+    justify-items: start;
+    border-left: 2px solid rgba(40, 40, 40, .5);
+    border-top: 2px solid rgba(40, 40, 40, .5);
+    padding: 0px 0 0 30px;
+    gap: 20px;
 }
 
-.imgAside{
+.imgAside {
     display: flex;
     flex-direction: column;
-    align-content: flex-start;
-
-    height: 100%;
+    align-items: flex-start;
+    height: auto;
+    padding-top: 25px;
 }
 
-.datos{
-    height: 70px;
-    padding-top: 10px;
+.datos {
+    margin-bottom: 10px;
+    text-align: left;
 }
 
-.datos p{
+.datos p {
     font-size: 15px;
 }
-.name{
+
+.name {
     color: var(--color-blue);
 }
-#name{
+
+#name {
     color: black;
+    margin-top: 2px;
 }
 
-aside ul{
+aside figure img {
+    width: 225px;
+    height: auto;
+}
+
+.aside-menu {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
     height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    border-left: 2px solid rgba(40, 40, 40, .5);
 }
 
-aside ul li{
-    color: rgb(28, 28, 28);
+.aside-menu li {
+    color: black;
+    display: flex;
+    align-items: space-around;
+    font-size: 14px;
+}
+
+.circle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #d8d8d8;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 /*----------------------------------------Estilos de footer-------------------------*/
-.footer{
+.footer {
     grid-area: footer;
-    border-top: 2px solid white;
-
-    padding-top: 10px;
+    border-top: 2px solid #999;
+    padding: 0;
+    background-color: var(--secundary-color);
 }
 
-.footer-ul{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
+.footer-ul {
+    display: flex;
+    align-items: stretch;
+    padding: 0;
 }
 
-ul > li{
+.footer-ul>li {
     list-style: none;
-    font-size: 18px;
-    color: var(--font)
+    font-size: 14px;
+    color: black;
+    border-right: 1px solid #a0a0a0;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-ul>li:nth-child(6) {
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+
+.footer-ul>li:last-child {
+    border-right: none;
 }
 
 /*----------------------------- LOGIN ----------------------------------------------*/
 
-.login{
+.login {
     position: absolute;
     right: 725px;
     top: 210px;
@@ -181,27 +288,30 @@ ul > li{
     box-shadow: 0px 0px 4px #333;
 }
 
-.login h1{
+.login h1 {
     color: green;
     font-size: 15px;
     border-bottom: #292727 solid 1px;
     padding: 4px;
 }
-.form-login{
+
+.form-login {
     padding-top: 20px;
 }
-.form-login label{
+
+.form-login label {
     font-size: 15px;
 }
 
-.form-login input[type="text"]{
+.form-login input[type="text"] {
     width: 70%;
     height: 20px;
     font-size: 15px;
     margin: 10px;
 }
 
-.form-login button, .form-login input[type="submit"]{
+.form-login button,
+.form-login input[type="submit"] {
     width: 80px;
     height: 30px;
     background-color: var(--primary-color);
