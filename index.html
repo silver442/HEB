@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS-HEB</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/movil.css">
     <script src="Jquery/jquery-3.7.1.min.js"></script>
 
     <!-- Moment js-->
@@ -92,7 +93,7 @@
                     <div class="plu-section">
                         <label for="BusquedaPLU" class="PLU">
                             <span class="text text-green italic">Busqueda:</span> <span class="text text-blue italic" style="margin-left: 20px;">PLU #</span><br>
-                            <input type="text" id="BusquedaPLU">
+                            <input type="text" inputmode="numeric" pattern="[0-9]*" id="BusquedaPLU">
                         </label>
                         <div class="info-text">
                             <p class="text-blue italic">Teclear Articulo por vender.</p>
