@@ -6,7 +6,15 @@ $(function(){
     //var name1 = prompt("User Name: ");
 
     var name1;
-    $("#userName").focus().keypress(function(e) {
+    var guardadoNombre = localStorage.getItem("nombreCajero");
+
+    if (guardadoNombre) {
+        iniciarSesionUsuario(guardadoNombre);
+    } else {
+        $("#userName").focus();
+    }
+
+    $("#userName").keydown(function(e) {
         if(e.which == 13) {
             login(e);
         }
@@ -14,40 +22,62 @@ $(function(){
     $("#btnEntrar").click(login);
 
     function login(e){
-        
-        name1 = $("#userName").val();
-        $("#name").text(name1); 
-        $(".login").attr("hidden", true);
-
-        // Cambiamos a keydown para poder capturar ESC
-        $("#BusquedaPLU").focus().keydown(evento);
+        name1 = $("#userName").val().trim();
+        if(name1 !== "") {
+            localStorage.setItem("nombreCajero", name1);
+            iniciarSesionUsuario(name1);
+        }
         e.preventDefault();   
     }
 
+    function iniciarSesionUsuario(nombre) {
+        $("#name").text(nombre); 
+        $(".login").attr("hidden", true);
+
+        // Cambiamos a keydown para poder capturar ESC y F3
+        $("#BusquedaPLU").off("keydown").on("keydown", evento);
+        
+        // Iniciar transacción inmediatamente al logearse o cargar
+        inicializarTransaccion();
+        
+        $("#BusquedaPLU").focus();
+    }
+
     var dbProductos = {
-      "123": { "nombre": "PLATANO TABASCO REG", "precio": 29.50 },
-      "4011": { "nombre": "PLATANO AMARILLO", "precio": 22.90 },
-      "4046": { "nombre": "AGUACATE HASS", "precio": 89.90 },
-      "4081": { "nombre": "BERENJENA", "precio": 45.00 },
-      "4636": { "nombre": "MANZANA GALA", "precio": 42.50 },
-      "4131": { "nombre": "MANZANA FUJI", "precio": 55.00 },
-      "4061": { "nombre": "LECHUGA ROMANA", "precio": 19.90 },
-      "4044": { "nombre": "DURAZNO AMARILLO", "precio": 65.00 },
-      "3142": { "nombre": "TORONJA ROJA", "precio": 25.00 },
-      "7501001141444": { "nombre": "GATORE MORA 500 ML", "precio": 16.00 },
-      "7501001140027": { "nombre": "GATORE MORAS 350 ML", "precio": 11.00 },
-      "7501032398555": { "nombre": "BOLSA PLANA MUNDO VERDE", "precio": 9.90 },
-      "7501011115343": { "nombre": "COCA COLA REGULAR 600ML", "precio": 18.00 },
-      "7501000100060": { "nombre": "SABRITAS ORIGINAL 42G", "precio": 19.00 }
+        // --- FRUTAS (4 dígitos) ---
+        "4011": { "nombre": "PLATANO AMARILLO", "precio": 22.90 },
+        "4046": { "nombre": "AGUACATE HASS", "precio": 89.90 },
+        "4081": { "nombre": "BERENJENA", "precio": 45.00 },
+        "4636": { "nombre": "MANZANA GALA", "precio": 42.50 },
+        "4131": { "nombre": "MANZANA FUJI", "precio": 55.00 },
+        "4061": { "nombre": "LECHUGA ROMANA", "precio": 19.90 },
+        "4044": { "nombre": "DURAZNO AMARILLO", "precio": 65.00 },
+        "3142": { "nombre": "TORONJA ROJA", "precio": 25.00 },
+        "4545": { "nombre": "PLATANO TABASCO REG", "precio": 29.50 },
+        
+        // --- ABARROTES (3 dígitos) ---
+        "101": { "nombre": "COCA COLA REGULAR 600ML", "precio": 18.00 },
+        "102": { "nombre": "SABRITAS ORIGINAL 42G", "precio": 19.00 },
+        "103": { "nombre": "GATORE MORAS 350 ML", "precio": 11.00 },
+        "104": { "nombre": "GATORE MORA 500 ML", "precio": 16.00 },
+        "105": { "nombre": "GALLETAS OREO 114G", "precio": 20.50 },
+        "106": { "nombre": "LECHE ENTERA LALA 1L", "precio": 28.00 },
+        "107": { "nombre": "PAN BLANCO BIMBO", "precio": 45.00 },
+        
+        // --- OTROS: Farmacia, Carnes, Hogar (5 dígitos) ---
+        "50001": { "nombre": "ASPIRINA 500MG 40 TAB", "precio": 45.50 },
+        "50002": { "nombre": "PARACETAMOL 500MG", "precio": 25.00 },
+        "50101": { "nombre": "ARRACHERA MARINADA KG", "precio": 289.00 },
+        "50102": { "nombre": "POLLO ENTERO KG", "precio": 65.50 },
+        "50201": { "nombre": "DETERGENTE ARIEL 1KG", "precio": 42.00 },
+        "50202": { "nombre": "SUAVITEL 850ML", "precio": 22.90 },
+        "50203": { "nombre": "BOLSA PLANA MUNDO VERDE", "precio": 9.90 }
     };
 
     var carrito = [];
     var transaccionId = "";
     var estadoTerminal = "ESCANEO";
     var montoDonacion = 0;
-
-    // Iniciar transacción inmediatamente al cargar
-    inicializarTransaccion();
 
     function inicializarTransaccion() {
         let storedCart = localStorage.getItem("carritoActual");
@@ -73,6 +103,12 @@ $(function(){
     var producto;
 
     function evento(e){
+        if (e.which == 114) { // tecla F3
+            e.preventDefault();
+            hacerLogoff();
+            return;
+        }
+
         if(estadoTerminal === "ESCANEO") {
             if(e.which == 13){ // tecla enter
                 $(".pantalla").addClass("active-transaction");
@@ -89,7 +125,7 @@ $(function(){
         } 
         else if (estadoTerminal === "DONACION") {
             if(e.which == 13) {     // Enter (Si Redondea)
-                carrito.push({ nombre: "Donación Fundación HEB", precio: montoDonacion });
+                carrito.push({ nombre: "Donación Fundación HEB", precio: montoDonacion }); // Donación Fundación HEB
                 estadoTerminal = "TOTAL";
                 $("#modalDonacion").hide();
                 generarPantallaTotal();
@@ -103,9 +139,52 @@ $(function(){
         else if (estadoTerminal === "TOTAL") {
             if (e.which == 32 || e.which == 13) { // Espacio o Enter finaliza
                 finalizarTransaccion();
+            } else if (e.which == 27 || e.which == 8 || e.which == 46 || e.which == 88 || e.which == 120) { 
+                // ESC (27), Backspace (8), Delete (46), X (88), x (120) -> Regresar y quitar donación
+                regresarAEscaneo();
             }
             e.preventDefault();
         }
+    }
+
+    function hacerLogoff() {
+        // Borramos variables de la memoria local
+        localStorage.removeItem("nombreCajero");
+        localStorage.removeItem("transaccionActual");
+        localStorage.removeItem("carritoActual");
+        
+        // Esconder vistas que pudiesen haber asomado
+        $("#modalDonacion").hide();
+        $("#pantallaTotal").hide();
+        $("#pantallaEscaneo").show();
+        
+        // Limpiamos los rastros y devolvemos variables a defaults
+        carrito = [];
+        $(".pantalla").empty();
+        $("#totalPagar").val("$ 0.00");
+        $("#cajaFundacion").val("");
+        $("#numTransaccion").text("");
+        
+        // Reiniciamos al entorno de logueo primario
+        estadoTerminal = "ESCANEO";
+        $(".login").attr("hidden", false);
+        $("#userName").val("").focus();
+        $("#name").text("");
+        $("#BusquedaPLU").off("keydown");
+    }
+
+    function regresarAEscaneo() {
+        // Quitar la donación si existía
+        carrito = carrito.filter(item => item.nombre !== "Donación Fundación HEB");
+        localStorage.setItem("carritoActual", JSON.stringify(carrito));
+        
+        // Transicionar vista
+        $("#pantallaTotal").hide();
+        $("#pantallaEscaneo").show();
+        
+        estadoTerminal = "ESCANEO";
+        renderCart();
+        $("#BusquedaPLU").val("").focus();
     }
 
     //  Reloj
