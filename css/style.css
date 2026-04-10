@@ -115,6 +115,29 @@ header {
     padding-bottom: 3px;
 }
 
+.item-descuento-escaneo {
+    display: grid;
+    grid-template-columns: 35px 1fr 65px;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 2px;
+    color: #f73b3b;
+}
+
+.item-descuento-escaneo .item-index {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.item-descuento-escaneo .item-name {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.item-descuento-escaneo .item-price {
+    text-align: right;
+}
+
 .item-index {
     text-align: right;
     padding-right: 15px;

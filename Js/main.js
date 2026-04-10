@@ -235,6 +235,18 @@ $(function(){
             $(".pantalla").append(row);
         });
 
+        // Agregamos Descuentos para reflejarlos vivos en la pantalla
+        let desc = calcularDescuentos();
+        desc.forEach((d) => {
+            sumTotal += d.precio; // d.precio ya es negativo
+            let row = `<div class="item-descuento-escaneo">
+                <span class="item-index">****</span>
+                <span class="item-name">${d.nombre}</span>
+                <span class="item-price">${Math.abs(d.precio).toFixed(2)}-</span>
+            </div>`;
+            $(".pantalla").append(row);
+        });
+
         // Auto-scroll al final
         let objDiv = $(".pantalla")[0];
         objDiv.scrollTop = objDiv.scrollHeight;
