@@ -89,6 +89,43 @@ header {
     height: 100%;
     width: 100%;
     padding: 10px;
+    overflow-y: auto;
+}
+
+.pantalla.active-transaction {
+    border-top: 2px dashed black;
+    margin-top: 15px;
+    height: calc(100% - 15px);
+}
+
+/* Estilos de Ticket CSS Grid */
+.item-row {
+    display: grid;
+    grid-template-columns: 35px 1fr 65px;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 2px;
+    color: black;
+}
+
+.item-row.title-row {
+    font-weight: bold;
+    border-bottom: 1px dashed #999;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+}
+
+.item-index {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.item-name {
+    text-align: left;
+}
+
+.item-price {
+    text-align: right;
 }
 
 /*-----------------------------Estilos de la parte de abajo------------------*/

@@ -1,0 +1,16 @@
+{
+  "123": { "nombre": "PLATANO TABASCO REG", "precio": 29.50 },
+  "4011": { "nombre": "PLATANO AMARILLO", "precio": 22.90 },
+  "4046": { "nombre": "AGUACATE HASS", "precio": 89.90 },
+  "4081": { "nombre": "BERENJENA", "precio": 45.00 },
+  "4636": { "nombre": "MANZANA GALA", "precio": 42.50 },
+  "4131": { "nombre": "MANZANA FUJI", "precio": 55.00 },
+  "4061": { "nombre": "LECHUGA ROMANA", "precio": 19.90 },
+  "4044": { "nombre": "DURAZNO AMARILLO", "precio": 65.00 },
+  "3142": { "nombre": "TORONJA ROJA", "precio": 25.00 },
+  "7501001141444": { "nombre": "GATORE MORA 500 ML", "precio": 16.00 },
+  "7501001140027": { "nombre": "GATORE MORAS 350 ML", "precio": 11.00 },
+  "7501032398555": { "nombre": "BOLSA PLANA MUNDO VERDE", "precio": 9.90 },
+  "7501011115343": { "nombre": "COCA COLA REGULAR 600ML", "precio": 18.00 },
+  "7501000100060": { "nombre": "SABRITAS ORIGINAL 42G", "precio": 19.00 }
+}
