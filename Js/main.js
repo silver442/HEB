@@ -40,6 +40,11 @@ $(function(){
         // Iniciar transacción inmediatamente al logearse o cargar
         inicializarTransaccion();
         
+        if (!localStorage.getItem("guiaVisto")) {
+            estadoTerminal = "INSTRUCCIONES";
+            $("#modalInstrucciones").show();
+        }
+        
         $("#BusquedaPLU").focus();
     }
 
@@ -119,9 +124,19 @@ $(function(){
             }else if(e.which == 32){ // tecla espaciadora
                 e.preventDefault();
                 iniciarCobro();       
-            }else if(e.which==112){ // tecla p
-                verificacionPrecio();
+            }else if(e.which == 112){ // tecla F1 (Help)
+                estadoTerminal = "INSTRUCCIONES";
+                $("#modalInstrucciones").show();
+                e.preventDefault();
             }
+        } 
+        else if (estadoTerminal === "INSTRUCCIONES") {
+            if(e.which == 13 || e.which == 32 || e.which == 27) { // Enter, Espacio o Esc
+                $("#modalInstrucciones").hide();
+                localStorage.setItem("guiaVisto", "true");
+                estadoTerminal = "ESCANEO";
+            }
+            e.preventDefault();
         } 
         else if (estadoTerminal === "DONACION") {
             if(e.which == 13) {     // Enter (Si Redondea)
@@ -152,10 +167,12 @@ $(function(){
         localStorage.removeItem("nombreCajero");
         localStorage.removeItem("transaccionActual");
         localStorage.removeItem("carritoActual");
+        localStorage.removeItem("guiaVisto"); // Resetear la guía
         
         // Esconder vistas que pudiesen haber asomado
         $("#modalDonacion").hide();
         $("#pantallaTotal").hide();
+        $("#modalInstrucciones").hide();
         $("#pantallaEscaneo").show();
         
         // Limpiamos los rastros y devolvemos variables a defaults
