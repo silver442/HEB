@@ -353,3 +353,57 @@ aside figure img {
     background-color: var(--primary-color);
     border-color: #a0a0a0;
 }
+
+/* ------------------- Pantalla Total & Resumen ------------- */
+.header-desc {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.item-descuento {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: red;
+    margin-bottom: 5px;
+}
+.item-descuento span {
+    flex: 1;
+    text-align: right;
+}
+.item-descuento span:first-child {
+    text-align: left;
+}
+
+.resumen-pago {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.fila-pago {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.fila-pago span {
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.fila-pago input {
+    width: 130px;
+    text-align: right;
+    font-size: 17px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: var(--color-blue);
+}

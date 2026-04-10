@@ -35,17 +35,56 @@
 
 
             <!-------------Panatlla principal------------>
-            <div class="content-pantalla">
-                <div class="pantalla">
-                    <p></p>
+            <div id="pantallaEscaneo">
+                <div class="content-pantalla">
+                    <div class="pantalla">
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="total">
+                    <label for="totalPagar">
+                        <span class="text text-blue italic">Total Actual: </span>
+                        <input type="text" id="totalPagar" placeholder="$ 0.00" disabled>
+                    </label>
                 </div>
             </div>
 
-            <div class="total">
-                <label for="totalPagar">
-                    <span class="text text-blue italic">Total Actual: </span>
-                    <input type="text" id="totalPagar" placeholder="$ 0.00" disabled>
-                </label>
+            <!-------------Pantalla de Totales------------>
+            <div id="pantallaTotal" style="display: none;">
+                <div class="content-pantalla" style="border-bottom:none; margin-bottom: 0; height: 180px;">
+                    <div class="pantalla-descuentos" style="width: 100%; padding: 10px; overflow-y: auto;">
+                        <div class="header-desc text">
+                            <span>-F rma d/pago -</span>
+                            <span>-Se recibe -</span>
+                            <span>- Aplicado -</span>
+                        </div>
+                        <div id="listaDescuentos"></div>
+                    </div>
+                </div>
+
+                <div class="resumen-pago" style="background-color: #d1d2d4; padding: 10px 40px 10px 10px; margin: 0 1px 0 10px; border: 1px solid #999; border-top: none; height: 200px;">
+                    <div class="fila-pago text-blue italic">
+                        <span>Subtotal:</span>
+                        <input type="text" id="pagoSubtotal" disabled>
+                    </div>
+                    <div class="fila-pago text-blue italic">
+                        <span>Impuesto:</span>
+                        <input type="text" value="$0.00" disabled>
+                    </div>
+                    <div class="fila-pago text-blue italic">
+                        <span>Aplicado:</span>
+                        <input type="text" id="pagoAplicado" style="color: red;" disabled>
+                    </div>
+                    <div class="fila-pago text-blue italic">
+                        <span>Debe:</span>
+                        <input type="text" id="pagoDebe" disabled>
+                    </div>
+                    <div class="fila-pago text-blue" style="margin-top: 10px;">
+                        <span></span>
+                        <input type="text" id="cajaFundacion" class="input-final" style="font-style: italic; color: #666; background-color: #e6e6e6; border: 1px solid #aaa;" disabled>
+                    </div>
+                </div>
             </div>
 
             <div class="pantalla-bottom">
@@ -123,6 +162,18 @@
             <button>Clear</button>
 
         </form>
+    </div>
+
+    <!-- DONACION MODAL -->
+    <div class="modal-donacion login" id="modalDonacion" hidden style="height: 180px;">
+        <h1 style="color: blue;">Message from os_pos1 aplication</h1>
+        <div style="padding: 20px; text-align: center;">
+            <p>¿Desea redondear sus centavos<br>para la Fundación HEB?</p>
+            <p id="textoRedondeo" style="font-weight: bold; margin-top: 10px; color: green;"></p>
+            <div style="margin-top: 20px; text-align: center; font-size: 13px; font-style: italic;">
+                Pulse ENTER (Sí) o CLEAR (No)
+            </div>
+        </div>
     </div>
 </body>
 </html>
